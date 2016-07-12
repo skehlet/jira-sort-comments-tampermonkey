@@ -6,13 +6,13 @@ You will need to add additional @match entries in the script so it runs on your 
 
 # Why?
 
-This script is necessary because JIRA only has a single, site-wide comment sort option, and if you prefer comments sorted in the opposite direction as your site administrator, you will have to constantly fix the sort order manually (after some number of hours or days when your session resets), likely only after you've realized you've been reading comments in the wrong order. This script relieves this constant source of frustration. 
+This script is necessary because JIRA only has a single, site-wide comment sort option, and if you prefer comments sorted in the opposite direction as your site administrator, you will have to constantly fix the sort order manually, after some number of hours or days when your session resets, and likely only after you've realized you've been reading comments in the wrong order. This script relieves this constant source of frustration. 
 
 # How well does it work?
 
-It seems to work well, however it is only a workaround until Atlassian can implement *Store comment sort order in user profile* ([JRA-5443](https://jira.atlassian.com/browse/JRA-5443)). However this ticket has been open since December of 2004, so I wouldn't count on it anytime soon.
+It seems to work well, but it's only a workaround until Atlassian can implement *Store comment sort order in user profile* ([JRA-5443](https://jira.atlassian.com/browse/JRA-5443)). However this ticket has been open since December of 2004, so I wouldn't count on it anytime soon.
 
-It's likely different versions of JIRA may have different HTML element names and/or framing behavior, so there will be a need to adapt it to handle this. I tested it on my own JIRA server (v7.1.8#71012-sha1:d834917) and Atlassian's but other/future versions may need tweaks. Improvements/assistance and Pull Requests would be greatly appreciated.
+It's likely different versions of JIRA may have different HTML element names and/or framing behavior, so there will be a need to adapt it to handle this over time. One thing I had to do was intercept the built-in scroll down behavior JIRA appears to add when you click the sort order link. I tested it on my own JIRA server (v7.1.8#71012-sha1:d834917) and Atlassian's but other/future versions may need tweaks. Improvements/assistance and Pull Requests would be greatly appreciated.
 
 # How to use
 
@@ -20,11 +20,13 @@ It's likely different versions of JIRA may have different HTML element names and
 
 1. Go to [this script's page on Greasy Fork](https://greasyfork.org/en/scripts/21311-sort-jira-comments-in-ascending-order-oldest-first). Click the green *Install this script* button. 
 
-1. Tampermonkey will show you the script so you can review what it does and where it runs. **At this time, you must add the appropriate `@match` tag(s) so it runs on the JIRA servers you wish to fix.**
+1. Tampermonkey will now show you the script so you can review what it does. Click Install if you're satisfied. It doesn't seem to allow code changes at this time, see next step.
+
+1. **At this time, you must edit the script to add the appropriate `@match` tag(s) so it runs on the JIRA servers you wish to fix.** Click the Tampermonkey icon in your browser, go to Dashboard, click the script, then add the `@match` tag(s).
 
 1. If you also wish to force comments to be sorted in descending order, change that now.
 
-1. Click Install. That's it! You can test by reversing the comments and reloading the page.
+1. Click Install. That's it! You can test it by going to your JIRA server, reversing the comments, and reloading the page.
 
 # Copyright
 
