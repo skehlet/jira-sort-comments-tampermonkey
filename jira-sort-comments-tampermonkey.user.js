@@ -4,7 +4,6 @@
 // @version      0.5
 // @description  Force JIRA comments to be sorted in the order you prefer.
 // @author       Steve Kehlet
-// @match        https://jira.atlassian.com/browse/*
 // @downloadURL  https://github.com/jettero/jira-sort-comments-tampermonkey/raw/master/jira-sort-comments-tampermonkey.user.js
 // @include      http*://*atlassian.net/secure/RapidBoard.jspa*
 // @include      http*://jira*/secure/RapidBoard.jspa*
