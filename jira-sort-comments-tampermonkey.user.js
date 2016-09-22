@@ -5,7 +5,10 @@
 // @description  Force JIRA comments to be sorted in the order you prefer.
 // @author       Steve Kehlet
 // @match        https://jira.atlassian.com/browse/*
-// ... include more match statements here, including your private JIRA repos
+// @downloadURL  https://github.com/skehlet/jira-sort-comments-tampermonkey/raw/master/jira-sort-comments-tampermonkey.user.js
+// @include      http*://*atlassian.net/secure/RapidBoard.jspa*
+// @include      http*://jira*/secure/RapidBoard.jspa*
+// @include      http*://*/jira/secure/RapidBoard.jspa*
 // @grant        none
 // ==/UserScript==
 
