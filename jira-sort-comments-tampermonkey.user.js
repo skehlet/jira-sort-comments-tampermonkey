@@ -5,9 +5,9 @@
 // @description  Force JIRA comments to be sorted in the order you prefer.
 // @author       Steve Kehlet
 // @downloadURL  https://github.com/jettero/jira-sort-comments-tampermonkey/raw/master/jira-sort-comments-tampermonkey.user.js
-// @match        http*://*atlassian.net/browse/*
-// @match        http*://jira*/browse/*
-// @match        http*://*/jira/browse/*
+// @include      http*://*atlassian.net/browse/*
+// @include      http*://jira*/browse/*
+// @include      http*://*/jira/browse/*
 // @grant        none
 // ==/UserScript==
 
