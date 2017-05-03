@@ -17,7 +17,7 @@
     $('.issue-activity-sort-link').each(function () {
         var sortLink = $(this);
         // the link shows the order that will result if you click on it
-        if (sortLink.attr('data-order') == desiredSortOrder) {
+        if (sortLink.attr('data-order') == desiredSortOrder || sortLink.attr('href').endsWith(desiredSortOrder)) {
             // use .issue-view if present (there's a sidebar and scrollable frame to the right), otherwise window
             var selector = $('.issue-view').length > 0 ? '.issue-view' : window;
             var scrollPos = $(selector).scrollTop();
