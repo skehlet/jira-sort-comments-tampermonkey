@@ -14,7 +14,16 @@
 
     var desiredSortOrder = 'asc'; // change me to 'desc' if you prefer
 
-    $('.issue-activity-sort-link').each(function () {
+    // apparently sometimes $ isn't available and jQuery is there (e.g. issues.apache.org/jira)
+    $ = $ || jQuery;
+
+    // some jira setups (e.g. issues.apache.org/jira) have sort toggle button as
+    // class="icon icon-sort-down ajax-activity-content" OR class="icon icon-sort-up ajax-activity-content"
+    // depending on the context. So, using those selectors too.
+    $('.issue-activity-sort-link')
+    .add($('.icon-sort-down.ajax-activity-content'))
+    .add($('.icon-sort-up.ajax-activity-content'))
+    .each(function () {
         var sortLink = $(this);
         // the link shows the order that will result if you click on it
         if (sortLink.attr('data-order') == desiredSortOrder || sortLink.attr('href').endsWith(desiredSortOrder)) {
