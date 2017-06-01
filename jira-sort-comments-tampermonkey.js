@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Sort JIRA comments.
 // @namespace    https://github.com/skehlet/jira-sort-comments-tampermonkey
-// @version      0.6
+// @version      0.7
 // @description  Force JIRA comments to be sorted in the order you prefer.
-// @author       Steve Kehlet
+// @author       @skehlet (Steve Kehlet)
+// @contributor  @saurabhere
+// @contributor  @catholicon
 // @match        https://jira.atlassian.com/browse/*
 // ... include more match statements here, including your private JIRA repos
 // @grant        none
