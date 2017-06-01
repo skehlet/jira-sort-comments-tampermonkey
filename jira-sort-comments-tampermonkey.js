@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sort JIRA comments.
 // @namespace    https://github.com/skehlet/jira-sort-comments-tampermonkey
-// @version      0.5
+// @version      0.6
 // @description  Force JIRA comments to be sorted in the order you prefer.
 // @author       Steve Kehlet
 // @match        https://jira.atlassian.com/browse/*
@@ -14,10 +14,19 @@
 
     var desiredSortOrder = 'asc'; // change me to 'desc' if you prefer
 
-    $('.issue-activity-sort-link').each(function () {
+    // apparently sometimes $ isn't available and jQuery is there (e.g. issues.apache.org/jira)
+    $ = $ || jQuery;
+
+    // some jira setups (e.g. issues.apache.org/jira) have sort toggle button as
+    // class="icon icon-sort-down ajax-activity-content" OR class="icon icon-sort-up ajax-activity-content"
+    // depending on the context. So, using those selectors too.
+    $('.issue-activity-sort-link')
+    .add($('.icon-sort-down.ajax-activity-content'))
+    .add($('.icon-sort-up.ajax-activity-content'))
+    .each(function () {
         var sortLink = $(this);
         // the link shows the order that will result if you click on it
-        if (sortLink.attr('data-order') == desiredSortOrder) {
+        if (sortLink.attr('data-order') == desiredSortOrder || sortLink.attr('href').endsWith(desiredSortOrder)) {
             // use .issue-view if present (there's a sidebar and scrollable frame to the right), otherwise window
             var selector = $('.issue-view').length > 0 ? '.issue-view' : window;
             var scrollPos = $(selector).scrollTop();
